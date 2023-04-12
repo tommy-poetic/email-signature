@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import {reactClickToComponent} from "vite-plugin-react-click-to-component";
 import tsconfigPaths from "vite-tsconfig-paths";
 import sassDts from "vite-plugin-sass-dts";
-import unfonts from "unplugin-fonts/vite.js";
+import unfonts from "unplugin-fonts/vite"; // eslint-disable-line n/file-extension-in-import
 
 export default defineConfig({
 	css: {
