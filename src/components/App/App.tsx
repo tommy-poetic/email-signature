@@ -1,43 +1,36 @@
 import React from "react";
-import clsx from "clsx";
-import viteLogo from "@assets/vite.svg";
-import reactLogo from "@assets/react.svg";
 import Header from "@components/Header";
+import Form from "@components/Form";
+import Output from "@components/Output";
 import styles from "./App.module.scss";
 
+export type User = Record<(
+	| "name"
+	| "title"
+	| "communityName"
+	| "address"
+	| "phoneNumber"
+	| "url"
+), string>;
+
 function App() {
-	const [count, setCount] = React.useState(0);
+	const [user, setUser] = React.useState<User>({
+		name: "John Doe",
+		title: "Manager",
+		communityName: "Caldwell Heights",
+		address: "302 E. Martin Luther King Dr.\nCaldwell, TX 77836",
+		phoneNumber: "9794754369",
+		url: "https://caldwell-heights.webflow.io/",
+	});
 
 	return (
-		<>
+		<section className={styles.app}>
 			<Header/>
-			<div className={styles.app}>
-				<div>
-					<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-						<img src={viteLogo} className={styles.logo} alt="Vite logo"/>
-					</a>
-					<a href="https://reactjs.org" target="_blank" rel="noreferrer">
-						<img src={reactLogo} className={clsx(styles.logo, styles.react)} alt="React logo"/>
-					</a>
-				</div>
-				<h1>Vite + React</h1>
-				<div className={styles.card}>
-					<button
-						type="button" onClick={() => {
-							setCount((count) => count + 1);
-						}}
-					>
-						count is {count}
-					</button>
-					<p>
-						Edit <code>src/App.tsx</code> and save to test HMR
-					</p>
-				</div>
-				<p className={styles.readTheDocs}>
-					Click on the Vite and React logos to learn more
-				</p>
-			</div>
-		</>
+			<section className={styles.container}>
+				<Form user={user} setUser={setUser}/>
+				<Output user={user}/>
+			</section>
+		</section>
 	);
 }
 

@@ -1,11 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {createRoot} from "react-dom/client"; // eslint-disable-line n/file-extension-in-import
 import App from "@components/App";
-import "./index.css";
+import "unfonts.css";
+import "./reset.scss";
 
-ReactDOM.render(
-	<React.StrictMode>
-		<App/>
-	</React.StrictMode>,
-	document.querySelector("#root"),
-);
+createRoot(document.querySelector("#root")!).render(<React.StrictMode><App/></React.StrictMode>);

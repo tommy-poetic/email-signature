@@ -1,0 +1,28 @@
+.Form {
+	height: 75%;
+	width: 45%;
+}
+
+form {
+	padding-top: .5rem;
+	font-size: 1.25rem;
+
+	display: flex;
+	flex-direction: column;
+
+	.field {
+		display: flex;
+		justify-content: space-between;
+		width: 105%;
+		margin-bottom: .5rem;
+
+		input, textarea {
+			margin-right: 7.5rem;
+			font-size: 1rem;
+		}
+
+		textarea {
+			resize: vertical;
+		}
+	}
+}
